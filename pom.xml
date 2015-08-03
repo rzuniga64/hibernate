@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>04_basic_mapping_values</module>
+        <module>05_composite_value_types</module>
     </modules>
 
     <dependencies>
