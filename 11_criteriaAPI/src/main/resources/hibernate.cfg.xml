@@ -19,11 +19,11 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <mapping class="com.infiniteskills.Account"/>
+        <mapping class="com.infiniteskills.data.entities.Account"/>
         <mapping class="com.infiniteskills.data.entities.AccountType"/>
         <mapping class="com.infiniteskills.data.entities.Bank"/>
         <mapping class="com.infiniteskills.data.entities.Credential"/>
-        <mapping class="com.infiniteskills.Transaction"/>
+        <mapping class="com.infiniteskills.data.entities.Transaction"/>
         <mapping class="com.infiniteskills.data.entities.User"/>
 
     </session-factory>
