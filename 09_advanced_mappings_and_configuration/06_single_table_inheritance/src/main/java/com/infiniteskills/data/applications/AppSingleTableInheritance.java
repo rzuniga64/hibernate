@@ -1,18 +1,17 @@
 package com.infiniteskills.data.applications;
 
-import com.infiniteskills.data.entities.BondTablePerClassInheritance;
-import com.infiniteskills.data.entities.InvestmentTablePerClassInheritance;
-import com.infiniteskills.data.entities.PortfolioTablePerClassInheritance;
-import com.infiniteskills.data.entities.StockTablePerClassInheritance;
+import com.infiniteskills.data.entities.BondSingleTableInheritance;
+import com.infiniteskills.data.entities.InvestmentSingleTableInheritance;
+import com.infiniteskills.data.entities.PortfolioSingleTableInheritance;
+import com.infiniteskills.data.entities.StockSingleTableInheritance;
+import com.infiniteskills.data.utilities.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
-import com.infiniteskills.data.utilities.HibernateUtil;
-
-public class AppTablePerClassInheritance {
+public class AppSingleTableInheritance {
 
 	public static void main(String[] args) {
 
@@ -27,16 +26,16 @@ public class AppTablePerClassInheritance {
             session = sessionFactory.openSession();
             tx = session.beginTransaction();
 
-            PortfolioTablePerClassInheritance portfolio = new PortfolioTablePerClassInheritance();
+            PortfolioSingleTableInheritance portfolio = new PortfolioSingleTableInheritance();
             portfolio.setName("First Investments");
 
             // create transient stock entity
-            StockTablePerClassInheritance stock = createStock();
+            StockSingleTableInheritance stock = createStock();
             // set portfolio on stock entity
             stock.setPortfolio(portfolio);
 
             // create transient bond entity
-            BondTablePerClassInheritance bond = createBond();
+            BondSingleTableInheritance bond = createBond();
             // set portfolio on bond entity
             bond.setPortfolio(portfolio);
 
@@ -46,16 +45,17 @@ public class AppTablePerClassInheritance {
             portfolio.getInvestments().add(bond);
 
             // make stock and bond entity persistent, we will allow them to persist the portfolio through the cascade.
-            session.save(portfolio);
+            session.save(stock);
+            session.save(bond);
 
             // Persist the entities to the database
             tx.commit();
 
-            PortfolioTablePerClassInheritance dbPortfolio = (PortfolioTablePerClassInheritance) session.
-                    get(PortfolioTablePerClassInheritance.class, portfolio.getPortfolioId());
+            PortfolioSingleTableInheritance dbPortfolio = (PortfolioSingleTableInheritance) session.
+                    get(PortfolioSingleTableInheritance.class, portfolio.getPortfolioId());
             session.refresh(dbPortfolio);
 
-            for (InvestmentTablePerClassInheritance investment:dbPortfolio.getInvestments())
+            for (InvestmentSingleTableInheritance investment:dbPortfolio.getInvestments())
                 System.out.println(investment.getName());
 
         } catch (Exception e) {
@@ -68,8 +68,8 @@ public class AppTablePerClassInheritance {
         }
 	}
 
-    private static BondTablePerClassInheritance createBond() {
-		BondTablePerClassInheritance bond = new BondTablePerClassInheritance();
+    private static BondSingleTableInheritance createBond() {
+        BondSingleTableInheritance bond = new BondSingleTableInheritance();
         bond.setInterestRate(new BigDecimal("123.22"));
         bond.setIssuer("JP Morgan Chase");
         bond.setMaturityDate(new Date());
@@ -79,8 +79,8 @@ public class AppTablePerClassInheritance {
         return bond;
     }
 
-    private static StockTablePerClassInheritance createStock(){
-		StockTablePerClassInheritance stock = new StockTablePerClassInheritance();
+    private static StockSingleTableInheritance createStock(){
+        StockSingleTableInheritance stock = new StockSingleTableInheritance();
         stock.setIssuer("Allen Edmonds");
         stock.setName("Private American Stock Purchases");
         stock.setPurchaseDate(new Date());
