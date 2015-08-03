@@ -20,7 +20,7 @@
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">true</property>
 
-        <mapping class="com.infiniteskills.Address"/>
+        <mapping class="com.infiniteskills.data.entities.Address"/>
         <mapping class="com.infiniteskills.data.entities.Bank"/>
         <mapping class="com.infiniteskills.data.entities.User"/>
         <mapping class="com.infiniteskills.data.entities.UserMapACollectionOfCompositeValues"/>

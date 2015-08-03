@@ -11,6 +11,7 @@
     <modules>
         <module>04_basic_mapping_values</module>
         <module>05_composite_value_types</module>
+        <module>07_hibernate_api</module>
     </modules>
 
     <dependencies>
