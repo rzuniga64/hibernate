@@ -15,6 +15,7 @@
         <module>08_jpa_api</module>
         <module>10_hql_and_jpql</module>
         <module>11_criteriaAPI</module>
+        <module>06_entity_association</module>
     </modules>
 
     <dependencies>
