@@ -15,6 +15,12 @@
     <modules>
         <module>01_compound_primary_keys</module>
         <module>02_compound_join_columns</module>
+        <module>03_enumerations</module>
+        <module>04_mapped_superclass_inheritance</module>
+        <module>05_table_per_class_inheritance</module>
+        <module>06_single_table_inheritance</module>
+        <module>07_persistence_layer</module>
+        <module>08_views_for_complex_queries</module>
     </modules>
 
     <dependencies>
