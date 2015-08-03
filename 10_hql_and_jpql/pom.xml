@@ -2,19 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>hibernate</artifactId>
+        <groupId>hibernate</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>hibernate</groupId>
-    <artifactId>hibernate</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>04_basic_mapping_values</module>
-        <module>05_composite_value_types</module>
-        <module>07_hibernate_api</module>
-        <module>08_jpa_api</module>
-        <module>10_hql_and_jpql</module>
-    </modules>
+    <artifactId>hql_and_jqpl</artifactId>
 
     <dependencies>
         <dependency>
